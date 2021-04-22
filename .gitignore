@@ -131,5 +131,5 @@ dmypy.json
 # VSCODE
 .vscode
 
-# no images for now
+# no images for now (doesn't work)
 .jpg
