@@ -120,6 +120,7 @@ async def comandos(ctx):
     command_embed.add_field(name = '--amen', value = 'Pequeno momento para a palavra do senhor', inline = False)
     command_embed.add_field(name = '--sporting', value = 'Se o teu amor é o sporting', inline = False)
     command_embed.add_field(name = '--comandos', value = 'Esta coisa aqui', inline = False)
+    command_embed.add_field(name = 'mandar calar o bot', value = 'escreve "para por favor" para parar o spam', inline = False)
     await ctx.send(embed = command_embed)
 
 
