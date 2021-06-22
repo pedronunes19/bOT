@@ -85,7 +85,7 @@ async def pcp(ctx):
 @bot.command(name = 'amen')
 async def amen(ctx):
     await ctx.send('Um momento para a palavra do senhor')
-    await ctx.send(file=discord.File('amen.jpeg'))
+    await ctx.send(file=discord.File('amen.jpg'))
 
 
 
