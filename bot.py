@@ -2,9 +2,15 @@ import discord
 from discord.ext import commands
 import time
 import random
+
+# hidden token
 import os
 from dotenv import load_dotenv
 load_dotenv()
+
+# google translator API
+import googletrans 
+translator = googletrans.Translator()
 
 # Token
 token = str(os.environ['TOKEN'])
@@ -20,16 +26,18 @@ async def teste(ctx):
 @bot.command(name ='tino')
 async def tino(ctx):
     out_please = False
-    await ctx.send(f'Excelente escolha musical')
+    await ctx.reply(f'Excelente escolha musical')
     time.sleep(2)
-    file = open( "tinobOT.txt", "r")
+    file = open( "tino.txt", "r")
     for line in file:
-        m = await ctx.channel.history(limit = 3).flatten()
+        m = await ctx.channel.history(limit = 3).flatten()  # it does come with bugs but it's the best possible for now
+        m_out = ctx  # temporary assignment
         for i in m:
             if i.content == 'para por favor':
                 out_please = True
+                m_out = i
         if out_please:
-            print('Acabou o pão')
+            await m_out.reply('Acabou o pão')
             break
         line = line.strip()
         if len(line) > 0:
@@ -45,7 +53,7 @@ async def portugal(ctx):
     stop = []
     file = open( "tuga.txt", "r")
     for line in file:
-        m = await ctx.channel.history(limit = 3).flatten()
+        m = await ctx.channel.history(limit = 3).flatten()  # it does come with bugs but it's the best possible for now
         for i in m:
             if i.content == 'para por favor':
                 hino_stop = True
@@ -64,16 +72,18 @@ async def portugal(ctx):
 async def pcp(ctx):
     out_please = False
     
-    await ctx.send(f'Obrigado camarada')
+    await ctx.reply(f'Obrigado camarada')
     time.sleep(2)
     file = open( "avante.txt", "r")
     for line in file:
-        m = await ctx.channel.history(limit = 3).flatten()
+        m = await ctx.channel.history(limit = 3).flatten()  # it does come with bugs but it's the best possible for now
+        m_out = ctx  # temporary assignment
         for i in m:
             if i.content == 'para por favor':
                 out_please = True
+                m_out = i
         if out_please:
-            print('Ok camarada eu paro')
+            await m_out.reply('Ok camarada eu paro')
             break
         line = line.strip()
         if len(line) > 0:
@@ -109,6 +119,21 @@ async def sporting(ctx):
     random_sporting_gif = random.randint(0, len(sporting_gifs)-1)
     await ctx.send(sporting_lines[random_sporting])
     await ctx.send(sporting_gifs[random_sporting_gif])
+
+
+
+@bot.command(name = 'translate')
+async def translate(ctx, lang= None ,*words):
+    validLangs = googletrans.LANGUAGES.keys()
+    if (lang == None or len(words) == 0):
+        print('error1')
+    else:
+        if (lang not in validLangs):
+            print('error2')
+        else:
+            await ctx.reply(translator.translate(' '.join(words), dest = lang).text)
+
+
 
 @bot.command(name = 'comandos')
 async def comandos(ctx):
