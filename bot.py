@@ -134,6 +134,10 @@ async def translate(ctx, lang= None ,*words):
             await ctx.reply(translator.translate(' '.join(words), dest = lang).text)
 
 
+@bot.command(name = 'repo')
+async def repo(ctx):
+    await ctx.reply('https://github.com/pedronunes19/bOT')
+
 
 @bot.command(name = 'comandos')
 async def comandos(ctx):
@@ -145,6 +149,7 @@ async def comandos(ctx):
     command_embed.add_field(name = '--amen', value = 'Pequeno momento para a palavra do senhor', inline = False)
     command_embed.add_field(name = '--sporting', value = 'Se o teu amor é o sporting', inline = False)
     command_embed.add_field(name = '--translate', value = '--translate <lang> <text>', inline = False)
+    command_embed.add_field(name = '--repo', value = 'link para o repositório do github', inline = False)
     command_embed.add_field(name = '--comandos', value = 'Esta coisa aqui', inline = False)
     command_embed.add_field(name = 'mandar calar o bot', value = 'escreve "para por favor" para parar o spam', inline = False)
     await ctx.send(embed = command_embed)
