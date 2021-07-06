@@ -47,26 +47,26 @@ async def tino(ctx):
 
 @bot.command(name ='portugal')
 async def portugal(ctx):
-    hino_stop = False
     await ctx.send('https://media.giphy.com/media/dASkr4CGxMBYk/giphy.gif')
     time.sleep(2)
-    stop = []
-    file = open( "tuga.txt", "r")
+    file = open( "portugal.txt", "r")
+    out_please = False
     for line in file:
         m = await ctx.channel.history(limit = 3).flatten()  # it does come with bugs but it's the best possible for now
+        m_out = ctx  # temporary assignment
         for i in m:
             if i.content == 'para por favor':
-                hino_stop = True
-                stop.append(i.author)      
+                out_please = True
+                m_out = i
+        if out_please:
+            await m_out.reply('*barulhos de patriota triste*')
+            break
         line = line.strip()
         if len(line) > 0:
             await ctx.send(line)
             time.sleep(1)
     file.close()
-    stop = list(set(stop))
-    if hino_stop:
-        for i in stop:
-            await ctx.send(f'Não se para o hino {i.mention}')
+    
 
 @bot.command(name ='pcp')
 async def pcp(ctx):
