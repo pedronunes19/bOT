@@ -124,11 +124,12 @@ async def sporting(ctx):
 
 @bot.command(name = 'translate')
 async def translate(ctx, lang= None ,*words):
-    validLangs = googletrans.LANGUAGES.keys()
+    validLangs0 = googletrans.LANGUAGES.keys()
+    validLangs1 = googletrans.LANGUAGES.values()
     if (lang == None or len(words) == 0):
         await ctx.reply('Falta alguma coisa')
     else:
-        if (lang not in validLangs):
+        if (lang not in validLangs0 and lang not in validLangs1):
             await ctx.reply('Essa língua não existe')
         else:
             await ctx.reply(translator.translate(' '.join(words), dest = lang).text)
