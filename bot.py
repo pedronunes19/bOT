@@ -177,7 +177,11 @@ async def on_message(message):
 
     if message.author == bot.user:
         return
-        
+    """" In case you don't like Pedro Piadas (olá Cisco)
+    if message.author == await bot.fetch_user(808416499664158790):
+        await message.channel.send("Não gosto do Pedro Piadas")
+        await message.delete()
+    """
     if message.content == 'olá bOT':
         await message.channel.send(f'olá {message.author.mention}')
 
