@@ -3,16 +3,13 @@ from discord.ext import commands
 import time
 import random
 
-# hidden token
-import os
-#from dotenv import load_dotenv
-#load_dotenv()
 
 # google translator API
 import googletrans 
 translator = googletrans.Translator()
 
 # Token
+import os
 token = str(os.environ['TOKEN'])
 
 # Bot
