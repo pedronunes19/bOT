@@ -5,8 +5,8 @@ import random
 
 # hidden token
 import os
-from dotenv import load_dotenv
-load_dotenv()
+#from dotenv import load_dotenv
+#load_dotenv()
 
 # google translator API
 import googletrans 
