@@ -1,0 +1,6 @@
+discord.py==1.7.1
+async-timeout==3.0.1
+asyncpraw==7.3.0
+asyncprawcore==2.2.0
+requests==2.25.1
+googletrans==4.0.0rc1
