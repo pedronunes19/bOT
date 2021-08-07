@@ -42,6 +42,30 @@ async def tino(ctx):
             time.sleep(1)
     file.close()
 
+
+@bot.command(name ='leopoldina')
+async def tino(ctx):
+    out_please = False
+    #await ctx.reply(f'Excelente escolha musical')  ran out of ideas
+    #time.sleep(2)
+    file = open( "leopoldina.txt", "r")
+    for line in file:
+        m = await ctx.channel.history(limit = 3).flatten()  # it does come with bugs but it's the best possible for now
+        m_out = ctx  # temporary assignment
+        for i in m:
+            if i.content == 'para por favor':
+                out_please = True
+                m_out = i
+        if out_please:
+            await m_out.reply(':(')  # also ran out of ideas but at least is something
+            break
+        line = line.strip()
+        if len(line) > 0:
+            await ctx.send(line)
+            time.sleep(1)
+    file.close()
+
+
 @bot.command(name ='portugal')
 async def portugal(ctx):
     await ctx.send('https://media.giphy.com/media/dASkr4CGxMBYk/giphy.gif')
