@@ -112,6 +112,29 @@ async def pcp(ctx):
             time.sleep(1)
     file.close()
 
+
+@bot.command(name ='socrates')
+async def socrates(ctx):
+    out_please = False
+    time.sleep(2)
+    file = open( "sócrates.txt", "r")
+    for line in file:
+        m = await ctx.channel.history(limit = 3).flatten()  # it does come with bugs but it's the best possible for now
+        m_out = ctx  # temporary assignment
+        for i in m:
+            if i.content == 'para por favor':
+                out_please = True
+                m_out = i
+        if out_please:
+            await m_out.reply('foi um prazer amigo socialista')
+            break
+        line = line.strip()
+        if len(line) > 0:
+            await ctx.send(line)
+            time.sleep(1)
+    file.close()
+
+
 # useless since the picture isn't on github    
 """  
 @bot.command(name = 'amen')
