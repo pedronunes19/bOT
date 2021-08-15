@@ -193,6 +193,7 @@ async def comandos(ctx):
     command_embed.add_field(name = '--leopoldina', value = 'são 4 da manhã não sei o que escrever', inline = False)
     command_embed.add_field(name = '--pcp', value = 'AVANTE CAMARADA', inline = False)
     command_embed.add_field(name = '--portugal', value = 'Hino de Portugal', inline = False)
+    command_embed.add_field(name = '--socrates', value = 'uma homenagem ao nosso grande amigo', inline = False)
     #command_embed.add_field(name = '--amen', value = 'Pequeno momento para a palavra do senhor', inline = False)
     command_embed.add_field(name = '--sporting', value = 'Se o teu amor é o Sporting', inline = False)
     command_embed.add_field(name = '--translate', value = '"--translate <lang> <text>" para traduzir texto', inline = False)
