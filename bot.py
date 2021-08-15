@@ -116,7 +116,6 @@ async def pcp(ctx):
 @bot.command(name ='socrates')
 async def socrates(ctx):
     out_please = False
-    time.sleep(2)
     file = open( "sócrates.txt", "r")
     for line in file:
         m = await ctx.channel.history(limit = 3).flatten()  # it does come with bugs but it's the best possible for now
