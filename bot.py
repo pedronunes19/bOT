@@ -9,8 +9,8 @@ import googletrans
 translator = googletrans.Translator()
 
 # Token
-from dotenv import load_dotenv       #uncomment if heroku hours run out
-load_dotenv('.env')
+#from dotenv import load_dotenv       #uncomment if heroku hours run out
+#load_dotenv('.env')
 import os
 token = str(os.environ['TOKEN'])
 
