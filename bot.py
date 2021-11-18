@@ -106,7 +106,7 @@ async def pcp(ctx):
                 out_please = True
                 m_out = i
         if out_please:
-            await m_out.reply('Ok camarada eu paro')
+            await m_out.reply('foi um prazer camarada')
             break
         line = line.strip()
         if len(line) > 0:
@@ -127,7 +127,7 @@ async def socrates(ctx):
                 out_please = True
                 m_out = i
         if out_please:
-            await m_out.reply('foi um prazer amigo socialista')
+            await m_out.reply('foi um prazer amigo')
             break
         line = line.strip()
         if len(line) > 0:
