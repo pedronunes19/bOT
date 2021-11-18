@@ -9,8 +9,8 @@ import googletrans
 translator = googletrans.Translator()
 
 # Token
-#from dotenv import load_dotenv       uncomment if heroku hours run out
-#load_dotenv('.env')
+from dotenv import load_dotenv       #uncomment if heroku hours run out
+load_dotenv('.env')
 import os
 token = str(os.environ['TOKEN'])
 
@@ -184,6 +184,25 @@ async def translate(ctx, lang= None ,*words):
 @bot.command(name = 'repo')
 async def repo(ctx):
     await ctx.reply('https://github.com/pedronunes19/bOT')
+
+@bot.command(name = 'java')
+async def java(ctx):
+    if (ctx.channel.id != 879426936756113408):
+        await ctx.message.delete()
+        return
+    lang = ["Assembly", "C#", "C++", "C", "Cobol","Go", "Haskell", "HTML", "Java", "Javascript", "Kotlin", "Lisp", "Lua", "PHP", "Perl", "Prolog", "Python", "R", "Ruby", "Rust", "Scala", "Shell", "Smalltalk", "SQL", "Swift", "Pascal", "Typescript", "WebAssembly"]
+    
+    l1 = random.randint(0, len(lang)-1)
+    while(True):
+        l2 = random.randint(0, len(lang)-1)
+        if (l1 != l2):
+            break
+    while(True):
+        l3 = random.randint(0, len(lang)-1)
+        if (l1 != l3 and l2!=l3):
+            break
+    await ctx.send(f'"{lang[l1]} é {lang[l2]} só que {lang[l3]}"')
+   
 
 
 @bot.command(name = 'comandos')
