@@ -201,7 +201,10 @@ async def java(ctx):
         l3 = random.randint(0, len(lang)-1)
         if (l1 != l3 and l2!=l3):
             break
-    await ctx.send(f'"{lang[l1]} é {lang[l2]} só que {lang[l3]}"')
+    final = f'"{lang[l1]} é {lang[l2]} só que {lang[l3]}"'
+    if (l1 == "Java" and l2 == "Python" and l3 == "C++"):
+        final.upper()
+    await ctx.send(final)
    
 
 
