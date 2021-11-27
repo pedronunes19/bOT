@@ -227,6 +227,22 @@ async def comandos(ctx):
 
 
 
+@bot.command(name = 'voto')
+async def voto(ctx, *stuff):
+    m = stuff
+    msg = ctx.message
+    if '|' not in m:
+        await msg.add_reaction('👍')
+        await msg.add_reaction('👎')
+    else:
+        poll_count = 1
+        poll_react = {1: '🇦', 2: '🇧', 3: '🇨', 4: '🇩', 5: '🇪', 6: '🇫', 7: '🇬', 8: '🇭', 9: '🇮', 10: '🇯'}
+        for poll_sep in m:
+            if poll_sep == '|':
+                poll_count = poll_count + 1
+        for poll_v in range(1, poll_count + 1):
+            await msg.add_reaction(poll_react[poll_v])
+
 
 # On ready
 @bot.event
